@@ -11,7 +11,6 @@ gem "sprockets-rails"
 
 gem "carrierwave"
 gem "rmagick"
-gem "font-awesome-sass"
 
 # Use sqlite3 as the database for Active Record
 
