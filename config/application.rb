@@ -36,5 +36,7 @@ module Bbq
     config.i18n.default_locale = :ru
 
     config.generators.system_tests = nil
+    config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
+
   end
 end
