@@ -11,24 +11,22 @@
   </head>
 
   <body>
-  <div class="navbar navbar-default navbar-static-top">
     <div class="container">
-      <%# Для вывода названия приложения используем хелпер I18n.t %>
-      <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
-
-      <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
+      <nav class="navbar navbar-expand sticky-top navbar-dark bg-primary">
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
+       <div>
+         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li><%= link_to 'Профиль', current_user %></li>
-            <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+            <li class="nav-item"><%= link_to 'Профиль', current_user, class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
           <% else %>
-            <li><%= link_to 'Войти', new_user_session_path %></li>
-            <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+            <li class="nav-item"><%= link_to 'Войти', new_user_session_path, class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'nav-link' %></li>
           <% end %>
-        </ul>
-      </div>
+         </ul>
+       </div>
+      </nav>
     </div>
-  </div>
 
   <div class="container">
     <div class="row">
