@@ -7,7 +7,7 @@ require "active_model/railtie"
 require "active_record/railtie"
 # require "active_storage/engine"
 require "action_controller/railtie"
-# require "action_mailer/railtie"
+require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require "action_text/engine"
 require "action_view/railtie"
@@ -36,7 +36,6 @@ module Bbq
     config.i18n.default_locale = :ru
 
     config.generators.system_tests = nil
-    config.action_mailer.preview_path = "#{Rails.root}/app/mailers/previews"
 
   end
 end
