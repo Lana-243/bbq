@@ -1,12 +1,8 @@
 <h2 class="buffer-both">Log in</h2>
 
-<% if @user.errors.any? %>
-  <% @user.errors.messages.each do |message| %>
-    <p class = "alert alert-warning" role="alert"><%= message %></p>
-  <% end %>
-<% end %>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="form-group col-4 buffer-both">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>

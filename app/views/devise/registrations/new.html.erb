@@ -1,11 +1,5 @@
 <h2 class="buffer-both">Sign up</h2>
 
-<%# if @user.errors.any? %>
-  <%# @user.errors.full_messages.each do |message| %>
-<!--    <p class = "alert alert-warning" role="alert"><%#= message %></p>-->
-  <%# end %>
-<%# end %>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
