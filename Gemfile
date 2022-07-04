@@ -11,7 +11,6 @@ gem "rmagick"
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails-i18n'
-gem 'russian'
 gem "puma", "~> 5.0"
 gem "jsbundling-rails"
 gem "turbo-rails"
