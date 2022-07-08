@@ -1,4 +1,4 @@
-<h2 class="buffer-both">Log in</h2>
+<h2 class="buffer-both"><%= I18n.t('devise.sessions.new.sign_in') %></h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -21,7 +21,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class: 'btn btn-primary buffer-bottom' %>
+    <%= f.submit I18n.t('devise.sessions.new.to_sign_in'), class: 'btn btn-primary buffer-bottom' %>
   </div>
 <% end %>
 

@@ -1,3 +1,5 @@
+<% errors = model.errors %>
+
 <% if errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <%= I18n.t :error, count: errors.count %>
