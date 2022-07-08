@@ -7,7 +7,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(subscription_params)
 
     if @subscription.save
-      redirect_to @subscription, notice: "Subscription was successfully created."
+      redirect_to @subscription, notice: I18n.t('controllers.subscriptions.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
   # PATCH/PUT /subscriptions/1
   def update
     if @subscription.update(subscription_params)
-      redirect_to @subscription, notice: "Subscription was successfully updated."
+      redirect_to @subscription, notice: I18n.t('controllers.subscriptions.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class SubscriptionsController < ApplicationController
   # DELETE /subscriptions/1
   def destroy
     @subscription.destroy
-    redirect_to subscriptions_url, notice: "Subscription was successfully destroyed."
+    redirect_to subscriptions_url, notice: I18n.t('controllers.subscriptions.destroyed')
   end
 
   private
