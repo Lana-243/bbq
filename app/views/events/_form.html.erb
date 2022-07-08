@@ -26,8 +26,8 @@
     <%= f.text_field :pincode, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+  <div class="actions my-4">
+    <%= f.submit I18n.t('views.events.form.save'), class: 'btn btn-primary' %>
+    <%= I18n.t('views.events.form.or') %> <%= link_to I18n.t('views.events.form.back'), :back %>
   </div>
 <% end %>
