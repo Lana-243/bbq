@@ -21,9 +21,9 @@
             <div class="buffer-both">
               <%= link_to I18n.t('views.events.show.edit'), edit_event_path(@event),
                           class: 'btn btn-primary' %>
-              <%= button_to 'delete', @event,
+              <%= button_to I18n.t('views.events.show.delete'), @event,
                             method: :delete,
-                            form: { data: { turbo_confirm: 'U sure?' } },
+                            form: { data: { turbo_confirm: I18n.t('views.events.show.deletion_confirmation') } },
                             class: 'btn btn-danger'
               %>
             </div>

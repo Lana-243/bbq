@@ -267,5 +267,9 @@ ru:
         back_to_events: К списку пользователей
     subscriptions:
       subscribe: Подписаться на событие
-
+    application:
+      profile: Профиль
+      sign_out: Выйти
+      sign_in: Войти
+      sign_up: Зарегистрироваться
 
