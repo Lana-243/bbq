@@ -246,6 +246,8 @@ ru:
     events:
       show:
         edit: Редактировать событие
+        delete: Удалить событие
+        deletion_confirmation: вы уверены, что хотите удалить событие?
       index:
         events: События
         new_events: Создать событие

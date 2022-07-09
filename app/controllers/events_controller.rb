@@ -16,9 +16,7 @@ class EventsController < ApplicationController
     @new_photo = @event.photos.build(params[:photo])
   end
 
-
-  def edit
-  end
+  def edit; end
 
   def new
     @event = current_user.events.build
@@ -44,7 +42,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: I18n.t('controllers.events.destroyed')
+    redirect_to events_url, status: :see_other, notice: I18n.t('controllers.events.destroyed')
   end
 
   private
