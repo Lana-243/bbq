@@ -16,7 +16,7 @@ gem "jsbundling-rails"
 gem "turbo-rails", "~> 1.0.1"
 gem "stimulus-rails"
 gem "cssbundling-rails"
-
+gem 'image_processing', "~> 1.2"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Sass to process CSS

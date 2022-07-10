@@ -226,6 +226,7 @@ DEPENDENCIES
   debug
   devise
   devise-i18n
+  image_processing (~> 1.2)
   jsbundling-rails
   pg
   puma (~> 5.0)
