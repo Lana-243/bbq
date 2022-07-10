@@ -10,10 +10,6 @@ Rails.application.routes.draw do
 
     post :show, on: :member
   end
-  end
-
-  resources :users, only: [:show, :edit, :update]
-  end
 
   resources :users, only: [:show, :edit, :update]
 end
