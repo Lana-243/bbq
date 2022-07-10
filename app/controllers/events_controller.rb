@@ -12,8 +12,6 @@ class EventsController < ApplicationController
   def show
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
-    # Болванка модели для формы добавления фотографии
-    @new_photo = @event.photos.build(params[:photo])
   end
 
   def edit; end
