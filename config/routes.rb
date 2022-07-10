@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  resources :photos
   devise_for :users
 
   root "events#index"
-
-  resources :users, only: [:show, :edit, :update]
 
   resources :events do
     resources :comments, only: [:create, :destroy]
@@ -13,4 +10,7 @@ Rails.application.routes.draw do
 
     post :show, on: :member
   end
+  end
+
+  resources :users, only: [:show, :edit, :update]
 end

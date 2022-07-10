@@ -18,6 +18,9 @@ class EventsController < ApplicationController
 
   def edit; end
 
+  def edit
+  end
+
   def new
     @event = current_user.events.build
   end
