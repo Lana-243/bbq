@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :subscriptions
   has_many :subscribers, through: :subscriptions, source: :user
-  has_one_attached :photo do |attachable|
+  has_one_attached :photo, dependent: :purge do |attachable|
     attachable.variant :thumb, resize_to_limit: [300, 300]
   end
 
