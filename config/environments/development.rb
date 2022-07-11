@@ -50,7 +50,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  config.active_storage.service = :local
+  config.active_storage.service = :yandex
 
 
   # Raises error for missing translations.
