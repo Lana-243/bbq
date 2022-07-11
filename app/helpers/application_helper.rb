@@ -18,11 +18,7 @@ module ApplicationHelper
   end
 
   def user_avatar(user)
-    if user.avatar.attached?
-      user.avatar.variant(:thumb)
-    else
-      asset_path('user.png')
-    end
+    asset_path('user.png')
   end
 
   def fa_icon(icon_class)
