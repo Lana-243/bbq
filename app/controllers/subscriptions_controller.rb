@@ -1,40 +1,45 @@
 class SubscriptionsController < ApplicationController
-  before_action :set_event, only: [:create, :destroy]
+  before_action :set_event, only: %i[create destroy]
   before_action :set_subscription, only: [:destroy]
 
-  # POST /subscriptions
   def create
-    @subscription = Subscription.new(subscription_params)
+    # Болванка для новой подписки
+    @new_subscription = @event.subscriptions.build(subscription_params)
+    @new_subscription.user = current_user
 
-    if @subscription.save
-      redirect_to @subscription, notice: I18n.t('controllers.subscriptions.created')
+    if @new_subscription.save
+      # Если сохранилась успешно, редирект на страницу самого события
+      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
-      render :new, status: :unprocessable_entity
+      # если ошибки — рендерим здесь же шаблон события
+      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
     end
   end
 
-  # PATCH/PUT /subscriptions/1
-  def update
-    if @subscription.update(subscription_params)
-      redirect_to @subscription, notice: I18n.t('controllers.subscriptions.updated')
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /subscriptions/1
   def destroy
-    @subscription.destroy
-    redirect_to subscriptions_url, notice: I18n.t('controllers.subscriptions.destroyed')
+    message = { notice: I18n.t('controllers.subscriptions.destroyed') }
+
+    if current_user_can_edit?(@subscription)
+      @subscription.destroy
+    else
+      message = { alert: I18n.t('controllers.subscriptions.error') }
+    end
+
+    redirect_to @event, message
   end
 
   private
-
+  
   def set_subscription
-    @subscription = Subscription.find(params[:id])
+    @subscription = @event.subscriptions.find(params[:id])
+  end
+
+  def set_event
+    @event = Event.find(params[:event_id])
   end
 
   def subscription_params
-    params.fetch(:subscription, {})
+    # .fetch разрешает в params отсутствие ключа :subscription
+    params.fetch(:subscription, {}).permit(:user_email, :user_name)
   end
 end
