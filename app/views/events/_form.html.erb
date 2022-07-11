@@ -26,6 +26,11 @@
     <%= f.text_field :pincode, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :photo %>
+    <%= f.file_field :photo, class: 'form-control' %>
+  </div>
+
   <div class="actions my-4">
     <%= f.submit I18n.t('views.events.form.save'), class: 'btn btn-primary' %>
     <%= I18n.t('views.events.form.or') %> <%= link_to I18n.t('views.events.form.back'), :back %>

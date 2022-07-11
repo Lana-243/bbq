@@ -20,8 +20,10 @@
   <div class="actions check my-4">
     <%= f.submit I18n.t('views.users.edit.links.save'), class: 'btn btn-primary' %>
     <%= I18n.t('views.users.edit.links.or') %> <%= link_to I18n.t('views.users.edit.links.back'), :back %>
-  <div class="actions">
-    <%= f.submit 'Save', class: 'btn btn-primary' %>
-    или <%= link_to 'back', :back %>
+    <div class="actions">
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
+      или <%= link_to 'back', :back %>
+    </div>
   </div>
+
 <% end %>

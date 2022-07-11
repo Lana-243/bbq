@@ -58,7 +58,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event)
-          .permit(:title, :address, :datetime, :description, :pincode)
+          .permit(:title, :address, :datetime, :description, :pincode, :photo)
   end
 
   def password_guard!

@@ -34,6 +34,16 @@
   </div>
 
   <div class="row">
+    <div class="col">
+      <% if @event.photo.attached? %>
+        <div class="my-2">
+          <%= image_tag @event.photo.variant(:thumb), class: 'img-fluid' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-8">
       <div class="event-comments buffer-top">
         <%= render partial: 'comments/form',
