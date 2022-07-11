@@ -30,11 +30,11 @@ class SubscriptionsController < ApplicationController
 
   private
 
-    def set_subscription
-      @subscription = Subscription.find(params[:id])
-    end
+  def set_subscription
+    @subscription = Subscription.find(params[:id])
+  end
 
-    def subscription_params
-      params.fetch(:subscription, {})
-    end
+  def subscription_params
+    params.fetch(:subscription, {})
+  end
 end
