@@ -1,4 +1,10 @@
-<%= image_tag user_avatar(@user), class: 'user-avatar img-icon' %>
+<div class="text-center">
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar.variant(:thumb) %>
+  <% else %>
+    <%= image_tag user_avatar(@user), class: 'user-avatar img-icon' %>
+  <% end %>
+</div>
 
 <div class="text-center">
   <h1><%= @user.name %></h1>
