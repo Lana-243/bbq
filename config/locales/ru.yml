@@ -248,6 +248,8 @@ ru:
         edit: Редактировать событие
         delete: Удалить событие
         deletion_confirmation: вы уверены, что хотите удалить событие?
+        attendees: "Пойдут:"
+        subscription: "Я пойду:"
       index:
         events: События
         new_events: Создать событие
