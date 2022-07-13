@@ -1,4 +1,4 @@
-<h2 class="buffer-both"><%= I18n.t('registrations.edit.title', resource:resource_name.to_s.humanize) %></h2>
+<h2 class="buffer-both"><%= t('registrations.edit.title', resource:resource_name.to_s.humanize) %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,12 +32,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update", class: 'btn btn-primary buffer-bottom' %>
+    <%= f.submit t('devise.registrations.edit.update'), class: 'btn btn-primary buffer-bottom' %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to t('devise.shared.links.back'), :back %>

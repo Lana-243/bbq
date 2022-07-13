@@ -11,7 +11,7 @@
 
   <% if @user == current_user %>
     <p class="buffer-top">
-      <%= link_to I18n.t('views.users.show.edit_profile'), edit_user_path(@user),
+      <%= link_to t('views.users.show.edit_profile'), edit_user_path(@user),
                   class: 'btn btn-default' %>
     </p>
   <% end %>
