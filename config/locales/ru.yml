@@ -182,6 +182,7 @@ ru:
         update: Обновить
         we_need_your_current_password_to_confirm_your_changes: введите текущий пароль для подтверждения изменений
       new:
+        characters_minimum: ": минимальное количество символов"
         sign_up: Регистрация
       to_sign_up: Зарегистрироваться
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
@@ -238,6 +239,7 @@ ru:
     users:
       show:
         edit_profile: Редактировать профиль
+        no_events: Пользователь еще не организовал событий
       edit:
         edit_profile: Редактирование пользователя
         links:

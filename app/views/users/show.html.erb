@@ -25,7 +25,7 @@
         <%= render partial: 'events/event', collection: @user.events %>
       </div>
     <% else %>
-      <p class="buffer-top">User has not organized an event yet</p>
+      <p class="buffer-top"><%= t('views.users.show.no_events') %></p>
     <% end %>
   </div>
 </div>

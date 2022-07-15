@@ -11,7 +11,7 @@
   <div class="form-group col-4 buffer-both">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em class ="form-text text-muted" >(<%= @minimum_password_length %> characters minimum)</em>
+    <em class ="form-text text-muted" >(<%= @minimum_password_length %> <%=  t('devise.registrations.characters_minimum') %> )</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
   </div>
@@ -26,4 +26,5 @@
   </div>
 <% end %>
 <div>
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
