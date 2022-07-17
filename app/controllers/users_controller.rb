@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
+  before_action :set_user, only: %i[show]
   before_action :set_current_user, except: [:show]
 
   # GET /users/1
@@ -22,6 +23,10 @@ class UsersController < ApplicationController
 
   private
     # Only allow a list of trusted parameters through.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def set_current_user
     @user = current_user
   end
