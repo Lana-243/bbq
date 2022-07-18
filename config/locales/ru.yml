@@ -235,6 +235,7 @@ ru:
         models:
           subscription:
             event_creator_cannot_subscribe: Создатель события не может подписаться!
+            user_signed_up: Вы не можете подписать этого пользователя
   views:
     users:
       show:
