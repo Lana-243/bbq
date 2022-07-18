@@ -234,8 +234,11 @@ ru:
           other: "%{resource}: сохранение не удалось из-за %{count} ошибки:"
         models:
           subscription:
-            event_creator_cannot_subscribe: Создатель события не может подписаться!
-            user_signed_up: Вы не можете подписать этого пользователя
+            attributes:
+              user:
+                event_creator_cannot_subscribe: не может подписываться на своё событие
+              user_email:
+                user_signed_up: ": не можете подписать этого пользователя"
   views:
     users:
       show:

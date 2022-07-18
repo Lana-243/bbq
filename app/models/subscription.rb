@@ -28,13 +28,13 @@ class Subscription < ApplicationRecord
 
   def event_creator_cannot_subscribe
     if event.user == user
-      errors.add(:user, message: I18n.t('shared.errors.models.subscription.event_creator_cannot_subscribe'))
+      errors.add(:user, :event_creator_cannot_subscribe)
     end
   end
 
   def user_is_signed_up
     if User.where(email: user_email.downcase).present?
-      errors.add(:user_email, message: I18n.t('shared.errors.models.subscription.user_signed_up'))
+      errors.add(:user_email, :user_signed_up)
     end
   end
 end
