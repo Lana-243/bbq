@@ -33,15 +33,43 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <% if @event.photo.attached? %>
-        <div class="my-2">
-          <%= image_tag @event.photo.variant(:thumb), class: 'img-fluid' %>
-        </div>
-      <% end %>
+  <%= form_for @event do |f| %>
+    <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+
+    <div class="form-group">
+      <%= f.label :photos %>
+      <%= f.file_field :photos, multiple: true, direct_upload: true, class: 'form-control' %>
     </div>
-  </div>
+    <div class="actions my-4">
+      <%= f.submit t('views.events.form.save'), class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <% if @event.photos.attached? %>
+    <% @event.photos.each do |photo| %>
+      <%= image_tag photo %>
+    <% end %>
+  <% end %>
+
+  <%# if @event.photos.attached? %>
+<!--    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">-->
+<!--      <div class="carousel-inner">-->
+        <%# @event.photos.each do |photo| %>
+<!--          <div class="carousel-item active">-->
+            <%#= image_tag photo.variant(:thumb), class: 'd-block w-100' %>
+<!--          </div>-->
+        <%# end %>
+<!--      </div>-->
+<!--      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">-->
+<!--        <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--        <span class="sr-only">Previous</span>-->
+<!--      </a>-->
+<!--      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">-->
+<!--        <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--        <span class="sr-only">Next</span>-->
+<!--      </a>-->
+<!--    </div>-->
+  <%# end %>
 
   <div class="row">
     <div class="col-md-8">

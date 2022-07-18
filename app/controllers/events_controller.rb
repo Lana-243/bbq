@@ -31,7 +31,12 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(event_params)
+    if @event.update((event_params.reject { |k| k["photos"] }))
+      if params[:photos].present?
+        params[:photos].each do |image|
+          @event.photos.attach(image)
+        end
+      end
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
       render :edit, status: :unprocessable_entity
@@ -55,7 +60,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event)
-          .permit(:title, :address, :datetime, :description, :pincode, :photo)
+          .permit(:title, :address, :datetime, :description, :pincode, photos: [])
   end
 
   def password_guard!

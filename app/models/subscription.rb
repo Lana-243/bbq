@@ -10,8 +10,6 @@ class Subscription < ApplicationRecord
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
   validate :event_creator_cannot_subscribe
 
-
-
   def user_name
     user&.name || super
   end
