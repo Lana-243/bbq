@@ -31,9 +31,10 @@ class EventsController < ApplicationController
   end
 
   def update
+    #workaround so we could add more than one image
     if @event.update((event_params.reject { |k| k["photos"] }))
-      if params[:photos].present?
-        params[:photos].each do |image|
+      if params[:event][:photos].present?
+        params[:event][:photos].each do |image|
           @event.photos.attach(image)
         end
       end
