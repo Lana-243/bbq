@@ -37,8 +37,5 @@ module Bbq
 
     config.generators.system_tests = nil
     config.active_storage.variant_processor = :MiniMagick
-
-
-
   end
 end
