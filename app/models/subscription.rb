@@ -27,14 +27,10 @@ class Subscription < ApplicationRecord
   private
 
   def event_creator_cannot_subscribe
-    if event.user == user
-      errors.add(:user, :event_creator_cannot_subscribe)
-    end
+    errors.add(:user, :event_creator_cannot_subscribe) if event.user == user
   end
 
   def user_is_signed_up
-    if User.where(email: user_email.downcase).present?
-      errors.add(:user_email, :user_signed_up)
-    end
+    errors.add(:user_email, :user_signed_up) if User.where(email: user_email.downcase).present?
   end
 end
