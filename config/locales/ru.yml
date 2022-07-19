@@ -53,10 +53,17 @@ ru:
       subscription:
         user_name: Ваше имя
         user_email: Ваш email
-        event_creator_cannot_subscribe: не может подписываться на своё событие
-        user_signed_up: ": не можете подписать этого пользователя"
       photo:
         photo: Фотография
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              user_signed_up: ": не можете подписать этого пользователя"
+            user:
+              event_creator_cannot_subscribe: не может подписываться на своё событие
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
