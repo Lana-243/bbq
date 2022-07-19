@@ -1,15 +1,16 @@
 <% errors = model.errors %>
+
 <% if errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <div class="lead buffer-bottom">
-      <%= t('form.has') %> <%= t 'form.errors', count: errors.count %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+  <div class="alert alert-danger alert-dismissible">
+    <%= t("errors.messages.not_saved",
+               count: model.errors.count,
+               resource: model.class.model_name.human) %>
 
     <ul>
-      <% model.errors.each do |error| %>
-        <li><%= error.full_message %></li>
+      <% errors.each do |message| %>
+        <li><%= message.full_message %></li>
       <% end %>
     </ul>
+
   </div>
 <% end %>
