@@ -1,13 +1,13 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger alert-dismissible">
+  <div class="alert alert-danger alert-dismissible" role="alert">
     <%= t("errors.messages.not_saved",
                count: model.errors.count,
                resource: model.class.model_name.human) %>
 
     <ul>
-      <% errors.each do |message| %>
+      <% model.errors.each do |message| %>
         <li><%= message.full_message %></li>
       <% end %>
     </ul>
