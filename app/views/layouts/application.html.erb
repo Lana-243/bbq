@@ -6,8 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=09830f30-6061-410b-a189-3f3fc95aff0c&lang=ru_RU"
+            type="text/javascript">
+    </script>
     <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+
   </head>
 
   <body>

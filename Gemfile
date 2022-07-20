@@ -19,9 +19,9 @@ gem "cssbundling-rails"
 gem 'image_processing', "~> 1.2"
 gem 'aws-sdk-s3'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-
+gem 'jquery-rails'
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
