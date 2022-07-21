@@ -52,6 +52,9 @@ Rails.application.configure do
   config.assets.quiet = true
   config.active_storage.service = :yandex
 
+  config.action_mailer.raise_delivery_errors = true
+
+
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

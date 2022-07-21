@@ -62,6 +62,8 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.active_storage.service = :yandex
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :mailjet
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
