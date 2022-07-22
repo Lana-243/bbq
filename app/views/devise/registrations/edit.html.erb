@@ -13,10 +13,10 @@
   <% end %>
 
   <div class="form-group col-4 buffer-both">
-    <%= f.label :password %> <i>(<%= t.('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+    <%= f.label :password %> <i>(<%= t.('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br/>
     <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
     <% if @minimum_password_length %>
-      <br />
+      <br/>
       <em><%= @minimum_password_length %><%= t.('devise.registrations.edit.characters_minimum') %></em>
     <% end %>
   </div>
