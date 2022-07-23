@@ -4,7 +4,7 @@ document.addEventListener('turbo:load', () => {
   function init() {
 
     const mapElement = document.getElementById('map');
-    if (!mapElement) return;ss
+    if (!mapElement) return;
 
     const address = mapElement.getAttribute('data-address');
 
