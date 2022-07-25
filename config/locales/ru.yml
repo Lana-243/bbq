@@ -108,6 +108,7 @@ ru:
       event: Событие
       datetime: Состоится
       owner: Организатор
+      subject: "Новый комментарий @ %{title}"
     subscription:
       title: Новая подписка
       name: Имя
@@ -116,6 +117,7 @@ ru:
       event: Событие
       datetime: Состоится
       owner: Организатор
+      subject: "Новая подписка на %{title}"
 
   devise:
     confirmations:
