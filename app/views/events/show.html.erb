@@ -39,17 +39,20 @@
     </div>
   </div>
 
-  <%= form_for @event, url: { action: "update_photo" }, html: { method: "put" } do |f| %>
-    <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+  <% if user_signed_in? %>
+    <%= form_for @event, url: { action: "update_photo" }, html: { method: "put" } do |f| %>
+      <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
-    <div class="form-group">
-      <%= f.label :photos %>
-      <%= f.file_field :photos, multiple: true, direct_upload: true, class: 'form-control' %>
-    </div>
-    <div class="actions my-4">
-      <%= f.submit t('views.events.form.save'), class: 'btn btn-primary' %>
-    </div>
+      <div class="form-group">
+        <%= f.label :photos %>
+        <%= f.file_field :photos, multiple: true, direct_upload: true, class: 'form-control' %>
+      </div>
+      <div class="actions my-4">
+        <%= f.submit t('views.events.form.save'), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   <% end %>
+
 
   <% if @event.photos.attached? %>
     <% @event.photos.each do |photo| %>
