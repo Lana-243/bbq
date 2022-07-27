@@ -42,7 +42,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
-      render :edit, status: :unprocessable_entity
+      render :show, status: :unprocessable_entity
     end
   end
 
