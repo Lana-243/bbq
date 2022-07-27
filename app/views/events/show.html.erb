@@ -53,7 +53,8 @@
 
   <% if @event.photos.attached? %>
     <% @event.photos.each do |photo| %>
-      <%= image_tag photo %>
+      <%= link_to image_tag(photo.url), photo.url,
+                  data: { lightbox: 'event-photos', title: "picture" } %>
     <% end %>
   <% end %>
 
