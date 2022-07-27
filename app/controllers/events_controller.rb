@@ -39,11 +39,11 @@ class EventsController < ApplicationController
 
   def update_photo
     event_params = params.require(:event).permit(photos: [])
-    if @event.update(event_params)
-      redirect_to @event, notice: I18n.t('controllers.events.updated')
-    else
-      render :show, status: :unprocessable_entity
+    event_params[:photos].each do |image|
+      @event.photos.attach(image)
+      current_user.photos.attach @event.photos.map(&:blob).last
     end
+    redirect_to @event, notice: I18n.t('controllers.events.updated')
   end
 
   def destroy

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one_attached :avatar, dependent: :purge do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
   end
+  has_many_attached :photos
 
   validates :name, presence: true, length: {maximum: 25 }
 
