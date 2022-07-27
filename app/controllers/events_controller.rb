@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[show edit update destroy update_photo]
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_event, only: [:show]
   before_action :set_current_user_event, only: [:edit, :update, :destroy]
   before_action :password_guard!, only: [:show]
 
@@ -31,13 +30,16 @@ class EventsController < ApplicationController
   end
 
   def update
-    #workaround so we could add more than one image
-    if @event.update((event_params.reject { |k| k["photos"] }))
-      if params[:event][:photos].present?
-        params[:event][:photos].each do |image|
-          @event.photos.attach(image)
-        end
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: I18n.t('controllers.events.updated')
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def update_photo
+    event_params = params.require(:event).permit(photos: [])
+    if @event.update(event_params)
       redirect_to @event, notice: I18n.t('controllers.events.updated')
     else
       render :edit, status: :unprocessable_entity

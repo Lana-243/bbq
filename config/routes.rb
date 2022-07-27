@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create destroy]
     resources :subscriptions, only: %i[create destroy]
     resources :photos, only: %i[create destroy]
-
+    put :update_photo, on: :member
     post :show, on: :member
   end
 
