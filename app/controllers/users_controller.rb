@@ -4,13 +4,10 @@ class UsersController < ApplicationController
   before_action :set_current_user, except: [:show]
 
   # GET /users/1
-  def show
-    @user = User.find(params[:id])
-  end
+  def show; end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # PATCH/PUT /users/1
   def update
