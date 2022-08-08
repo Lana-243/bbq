@@ -1,0 +1,11 @@
+<%= form_with model:[@event, photo], html: { multipart: true }, data: { turbo: false } do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+
+  <div class="form-group">
+    <%= f.label :photo %>
+    <%= f.file_field :attached_photo, direct_upload: true, class: 'form-control' %>
+  </div>
+  <div class="actions my-4">
+    <%= f.submit t('views.events.form.save'), class: 'btn btn-primary' %>
+  </div>
+<% end %>

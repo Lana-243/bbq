@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   def show
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
   end
 
   def edit; end
@@ -37,15 +38,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def update_photo
-    event_params = params.require(:event).permit(photos: [])
-    event_params[:photos].each do |image|
-      @event.photos.attach(image)
-      current_user.photos.attach @event.photos.map(&:blob).last
-    end
-    redirect_to @event, notice: I18n.t('controllers.events.updated')
-  end
-
   def destroy
     @event.destroy
     redirect_to events_url, status: :see_other, notice: I18n.t('controllers.events.destroyed')
@@ -63,7 +55,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event)
-          .permit(:title, :address, :datetime, :description, :pincode, photos: [])
+          .permit(:title, :address, :datetime, :description, :pincode, :photo)
   end
 
   def password_guard!
