@@ -43,9 +43,11 @@
     <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
   </div>
 
-  <div class="event-photo-form">
-    <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="event-photo-form">
+      <%= render partial: 'photos/form', locals: { photo: @new_photo || @event.photos.build } %>
+    </div>
+  <% end %>
 
   <div class="row">
     <div class="col-md-8">
