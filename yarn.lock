@@ -597,7 +597,7 @@ kind-of@^6.0.2:
 
 lightbox2@^2.11.3:
   version "2.11.3"
-  resolved "https://registry.npmjs.org/lightbox2/-/lightbox2-2.11.3.tgz"
+  resolved "https://registry.yarnpkg.com/lightbox2/-/lightbox2-2.11.3.tgz#057d9244badb0f0fd4603c25d739a19a85a71978"
   integrity sha512-Q4v6il/OK9ttgEkAxSok/jrI/LUbqTrePFchqP2x/59qaDIZgJjEEc5Xf7peSMc/55Zo5PAgmX6EiN/BeEeUBQ==
 
 loader-runner@^4.2.0:
