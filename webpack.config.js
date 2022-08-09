@@ -5,7 +5,7 @@ module.exports = {
   mode: "production",
   devtool: "source-map",
   entry: {
-    application: "./app/javascript/application.js"
+    application: "./app/javascript/application.js",
   },
   output: {
     filename: "[name].js",
@@ -17,9 +17,4 @@ module.exports = {
       maxChunks: 1
     })
   ],
-  externals: {
-    // require("jquery") is external and available
-    //  on the global var jQuery
-    "jquery": "jQuery"
-  }
 }
