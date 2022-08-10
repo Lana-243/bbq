@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_one_attached :avatar, dependent: :purge do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
+    attachable.variant :mini, resize_to_limit: [50, 50]
   end
 
   validates :name, presence: true, length: {maximum: 25 }

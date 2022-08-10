@@ -259,6 +259,8 @@ ru:
           save: Сохранить
           back: вернуться
           or: или
+      info:
+        created_by: "Фото добавлено: "
     events:
       show:
         edit: Редактировать событие
@@ -294,4 +296,7 @@ ru:
     comments:
       send: Отправить
       delete: удалить
+    photos:
+      footer:
+        confirm_deletion: Вы точно хотите удалить фото?
 
