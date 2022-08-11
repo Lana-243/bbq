@@ -118,6 +118,15 @@ ru:
       datetime: Состоится
       owner: Организатор
       subject: "Новая подписка на %{title}"
+    photo:
+      title: Новое фото
+      name: Имя
+      email: Email
+      author: Автор
+      event: Событие
+      datetime: Состоится
+      owner: Организатор
+      subject: "Новое фото для %{title}"
 
   devise:
     confirmations:
