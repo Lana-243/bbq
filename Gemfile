@@ -9,6 +9,7 @@ gem "sprockets-rails"
 gem "carrierwave"
 gem "rmagick"
 gem 'devise'
+gem 'pundit'
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem "puma", "~> 5.0"
@@ -19,6 +20,8 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem 'image_processing', "~> 1.2"
 gem 'aws-sdk-s3'
+gem 'rspec-rails'
+gem 'shoulda-matchers'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem 'jquery-rails'
 # Use Sass to process CSS
@@ -30,6 +33,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "sqlite3", "~> 1.4"
+  gem 'factory_bot_rails'
 end
 
 group :development do

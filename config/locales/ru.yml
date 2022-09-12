@@ -308,4 +308,6 @@ ru:
     photos:
       footer:
         confirm_deletion: Вы точно хотите удалить фото?
+  pundit:
+      not_authorized: у вас нет на этого доступа!
 
