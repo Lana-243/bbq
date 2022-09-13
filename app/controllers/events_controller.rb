@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
-  # before_action :authenticate_user!, except: [:show, :index]
-  after_action :verify_authorized, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_user!, except: %i[show index]
+
+  after_action :verify_authorized, except: %i[index]
 
   def index
     @events = Event.all
@@ -22,7 +23,9 @@ class EventsController < ApplicationController
     render_password_form
   end
 
-  def edit; end
+  def edit
+    authorize @event
+  end
 
   def new
     @event = current_user.events.build

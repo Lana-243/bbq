@@ -11,18 +11,16 @@ class EventPolicy < ApplicationPolicy
     password_valid?(record)
   end
 
+  def edit?
+    update?
+  end
+
   def update?
     user_is_owner?(record)
   end
 
   def destroy?
-    user_is_owner?(record)
-  end
-
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+    update?
   end
 
   private
@@ -33,7 +31,7 @@ class EventPolicy < ApplicationPolicy
 
   def password_valid?(event_context)
     return true if event_context.event.pincode.blank?
-    return true if user && user == event_context.event.user
+    return true if user.present? && user == event_context.event.user
 
     event_context.pincode.present? && event_context.event.pincode_valid?(event_context.pincode)
   end
