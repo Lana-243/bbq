@@ -25,7 +25,7 @@ class EventPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.(user: user) if user.present?
+      scope.all
     end
   end
 
