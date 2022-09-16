@@ -62,9 +62,14 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.active_storage.service = :yandex
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.delivery_method = :mailjet
-  config.action_mailer.default_url_options = { host: 'https://bbq-rails.herokuapp.com' }
+  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.delivery_method = :mailjet
+  # config.action_mailer.default_url_options = { host: 'https://bbq-rails.herokuapp.com' }
+  #
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'hi@marvellous-events.ru'}
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
