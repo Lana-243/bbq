@@ -10,3 +10,15 @@
   <%= link_to I18n.t('devise.shared.links.forgot_your_password'), new_password_path(resource_name) %><br />
 <% end %>
 
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+<!--    <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />-->
+<!--    <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_github_omniauth_authorize_path, method: :post %><br />-->
+<!--    <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_github_omniauth_authorize_path, method: :post %><br />-->
+    <%= button_to t('devise.shared.links.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)),
+                  omniauth_authorize_path(resource_name, provider),
+                  data: { turbo: false },
+                  method: :post,
+                  class: 'btn' %>
+  <% end -%>
+<% end -%>
