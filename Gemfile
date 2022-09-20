@@ -28,7 +28,7 @@ gem 'mailjet'
 
 gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -9,6 +9,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 require 'omniauth-github'
+require 'omniauth-vkontakte'
 
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
@@ -278,6 +279,15 @@ Devise.setup do |config|
   omniauth_github_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_github_secret]
   config.omniauth :github, omniauth_github_id, omniauth_github_secret, scope: "user"
 
+  debugger
+
+  # omniauth_vkontakte_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_id]
+  # omniauth_vkontakte_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_secret]
+  # config.omniauth :vkontakte, omniauth_vkontakte_id, omniauth_vkontakte_secret, { scope: "email" }
+  #
+  omniauth_google_oauth2_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_google_oauth2_id]
+  omniauth_google_oauth2_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_google_oauth2_secret]
+  config.omniauth :google_oauth2, omniauth_google_oauth2_id, omniauth_google_oauth2_secret, scope: "user"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

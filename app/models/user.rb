@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:github]
+         :omniauthable, omniauth_providers: [:github, :google_oauth2]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -23,6 +23,24 @@ class User < ApplicationRecord
 
     return user if user.present?
 
+    provider = provider_data.provider
+    html_url = provider_data.extra.raw_info.html_url
+    url = html_url
+
+    where(url: url, provider: provider).first_or_create! do |user|
+      user.name = provider_data.info.name
+      user.avatar.attach(io: URI.open(provider_data.info.image), filename: 'avatar.jpg')
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+    end
+  end
+
+  def self.google_oauth2_from_omniauth(provider_data)
+    email = provider_data.info.email
+    user = where(email: email).first
+
+    return user if user.present?
+    debugger
     provider = provider_data.provider
     html_url = provider_data.extra.raw_info.html_url
     url = html_url
