@@ -283,8 +283,8 @@ Devise.setup do |config|
   # omniauth_vkontakte_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_secret]
   # config.omniauth :vkontakte, omniauth_vkontakte_id, omniauth_vkontakte_secret, { scope: "email" }
   #
-  omniauth_google_oauth2_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_google_oauth2_id]
-  omniauth_google_oauth2_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_google_oauth2_secret]
+  omniauth_google_oauth2_id = Rails.application.credentials[Rails.env.to_sym][:google_oauth2_id]
+  omniauth_google_oauth2_secret = Rails.application.credentials[Rails.env.to_sym][:google_oauth2_secret]
   config.omniauth :google_oauth2, omniauth_google_oauth2_id, omniauth_google_oauth2_secret, scope: "user"
 
   # ==> Warden configuration
