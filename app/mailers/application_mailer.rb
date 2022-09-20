@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV["MAIL_SENDER"]
+  default from: Rails.application.credentials.mail[:mail_sender]
 
   layout 'mailer'
 end
