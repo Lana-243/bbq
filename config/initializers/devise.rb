@@ -279,8 +279,6 @@ Devise.setup do |config|
   omniauth_github_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_github_secret]
   config.omniauth :github, omniauth_github_id, omniauth_github_secret, scope: "user"
 
-  debugger
-
   # omniauth_vkontakte_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_id]
   # omniauth_vkontakte_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_secret]
   # config.omniauth :vkontakte, omniauth_vkontakte_id, omniauth_vkontakte_secret, { scope: "email" }
