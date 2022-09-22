@@ -1,12 +1,10 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def github
-    # Дёргаем метод модели, который найдёт пользователя
-    @user = User.github_from_omniauth(request.env['omniauth.auth'])
-    # Если юзер есть, то логиним и редиректим на его страницу
+    @user = User.from_omniauth(request.env['omniauth.auth'])
+
     if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication
       flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'Github')
-      # Если неудачно, то выдаём ошибку и редиректим на главную
+      sign_in_and_redirect @user, event: :authentication
     else
       flash[:error] = I18n.t(
         'devise.omniauth_callbacks.failure',
@@ -16,17 +14,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def google_oauth2
-    @user = User.google_oauth2_from_omniauth(request.env['omniauth.auth'])
-    # Если юзер есть, то логиним и редиректим на его страницу
+  def yandex
+    @user = User.from_omniauth(request.env['omniauth.auth'])
+
     if @user.persisted?
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'Yandex')
       sign_in_and_redirect @user, event: :authentication
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'google_oauth2')
-      # Если неудачно, то выдаём ошибку и редиректим на главную
     else
       flash[:error] = I18n.t(
         'devise.omniauth_callbacks.failure',
-        kind: 'google_oauth2',
+        kind: 'Yandex',
         reason: 'authentication error'
       )
     end
