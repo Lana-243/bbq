@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = provider_data.info.name
-      if user.avatar.nil? == false
+      if provider_data.info.image.nil? == false
         user.avatar.attach(io: URI.open(provider_data.info.image), filename: 'avatar.jpg')
       end
       user.email = email
