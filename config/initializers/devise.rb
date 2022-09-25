@@ -8,9 +8,10 @@
 #
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-require 'omniauth-github'
+# require 'omniauth-github'
 require 'omniauth-yandex'
 # require 'omniauth-google-oauth2'
+require 'omniauth-vkontakte'
 
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
@@ -276,18 +277,23 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   #
-  omniauth_github_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_github_id]
-  omniauth_github_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_github_secret]
-  config.omniauth :github, omniauth_github_id, omniauth_github_secret, scope: "user"
+  # omniauth_github_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_github_id]
+  # omniauth_github_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_github_secret]
+  # config.omniauth :github, omniauth_github_id, omniauth_github_secret, scope: "user,user:email"
 
-  omniauth_yandex_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_yandex_id]
-  omniauth_yandex_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_yandex_secret]
-  config.omniauth :yandex, omniauth_yandex_id, omniauth_yandex_secret
+  # omniauth_yandex_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_yandex_id]
+  # omniauth_yandex_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_yandex_secret]
+  # config.omniauth :yandex, omniauth_yandex_id, omniauth_yandex_secret
 
+  # google_oauth2_id = Rails.application.credentials[Rails.env.to_sym][:google_oauth2_id]
+  # google_oauth2_secret = Rails.application.credentials[Rails.env.to_sym][:google_oauth2_secret]
+  # config.omniauth :google_oauth2, google_oauth2_id, google_oauth2_secret
+
+  omniauth_vkontakte_id = 51430943
   # omniauth_vkontakte_id = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_id]
-  # omniauth_vkontakte_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_secret]
-  # config.omniauth :vkontakte, omniauth_vkontakte_id, omniauth_vkontakte_secret, { scope: "email" }
-  #
+  omniauth_vkontakte_secret = Rails.application.credentials[Rails.env.to_sym][:omniauth_vkontakte_secret]
+  config.omniauth :vkontakte, omniauth_vkontakte_id, omniauth_vkontakte_secret, { scope: "email" }
+
   # omniauth_google_oauth2_id = Rails.application.credentials[Rails.env.to_sym][:google_oauth2_id]
   # omniauth_google_oauth2_secret = Rails.application.credentials[Rails.env.to_sym][:google_oauth2_secret]
   # config.omniauth :google_oauth2, omniauth_google_oauth2_id, omniauth_google_oauth2_secret, scope: "user"

@@ -26,10 +26,15 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "sassc-rails"
 gem 'mailjet'
 
-gem 'omniauth-github', "~> 1.0.3"
+
+# gem 'omniauth-github'
+# gem 'omniauth-github', "~> 1.0.3"
+# gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 # gem 'omniauth-rails_csrf_protection', '~> 1.0'
+# gem 'omniauth-rails_csrf_protection'
 # gem 'omniauth-google-oauth2'
 gem "omniauth-yandex"
+gem 'omniauth-vkontakte'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
