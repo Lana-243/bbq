@@ -26,10 +26,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "sassc-rails"
 gem 'mailjet'
 
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
-gem 'omniauth-rails_csrf_protection', '~> 1.0'
-
-
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "sqlite3", "~> 1.4"
