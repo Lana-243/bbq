@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:github, :yandex]
+         :omniauthable, omniauth_providers: [:github]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -17,25 +17,23 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
-  def self.from_omniauth(provider_data)
+  def self.github_from_omniauth(provider_data)
     email = provider_data.info.email
     user = where(email: email).first
 
     return user if user.present?
+
     provider = provider_data.provider
-    login = provider_data.extra.raw_info.id
-    url = login
+    html_url = provider_data.extra.raw_info.html_url
+    url = html_url
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = provider_data.info.name
-      if provider_data.info.image.nil? == false
-        user.avatar.attach(io: URI.open(provider_data.info.image), filename: 'avatar.jpg')
-      end
+      user.avatar.attach(io: URI.open(provider_data.info.image), filename: 'avatar.jpg')
       user.email = email
       user.password = Devise.friendly_token.first(16)
     end
   end
-
 
   private
 
