@@ -1,24 +1,82 @@
-# README
+# AskMe
+Это сайт, куда вы можете добавлять намечающиеся встречи, события.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Как работает
 
-Things you may want to cover:
+В приложении вы можете:
 
-* Ruby version
+* Создавать события
+* Подписываться на события друзей
+* Оставлять комментарии
+* Добавлять фото
+* Получать уведмления о новых подписках и фото
+* Делать свои события приватными, ограничив их пинкодом
 
-* System dependencies
+## Что требуется сделать, чтобы запустить приложение:
 
-* Configuration
+### Склонировать репозиторий
 
-* Database creation
+В терминале пройти в папку, куда хотите сохранить приложение и внесите код:
 
-* Database initialization
+```
+git clone https://github.com/Lana-243/bbq.git
+```
 
-* How to run the test suite
+```
+cd bbq
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Внести ключи
 
-* Deployment instructions
+Далее необходимо внести ключи для приложения.
 
-* ...
+В приложении требуются ключи для
+ * Yandex Cloud (для хранения фото)
+ * Mailjet (для рассылок)
+
+Полученные данные вносим в файл credentials (nano можете заменить на любой редактор, например, vim) и сохраняем.
+
+```
+EDITOR=nano rails credentials:edit
+```
+Добавляем в файл строки:
+
+```
+mailjet:
+  mailjet_api_key: "ваш ключ"
+  mailjet_secret_key: "ваш ключ"
+  mailjet_sender: "ваш ключ"
+
+yc:
+  access_key_id: "ваш ключ"
+  secret_access_key: "ваш ключ"
+```
+
+### Подгрузить библиотеки
+
+```
+bundle install
+```
+
+### Объединить стили
+
+```
+yarn install
+```
+```
+yarn build
+```
+```
+yarn build:css
+```
+
+### Прогнать миграции
+
+```
+bundle exec rails db:migrate
+```
+### Запустить приложение!
+
+```
+rails s
+```
