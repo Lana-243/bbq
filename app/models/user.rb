@@ -10,7 +10,7 @@ class User < ApplicationRecord
     attachable.variant :mini, resize_to_limit: [50, 50]
   end
 
-  validates :name, presence: true, length: {maximum: 25 }
+  validates :name, presence: true, length: { maximum: 25 }
 
   before_validation :set_name, on: :create
 

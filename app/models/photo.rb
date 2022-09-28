@@ -10,5 +10,5 @@ class Photo < ApplicationRecord
   validates :user, presence: true
   validates :attached_photo, presence: true
 
-  scope :persisted, -> { where.not(id: nil)}
+  scope :persisted, -> { where.not(id: nil) }
 end
