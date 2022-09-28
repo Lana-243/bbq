@@ -38,3 +38,4 @@
 .byebug_history
 
 dump.rdb
+config/credentials.yml.enc
