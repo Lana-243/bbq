@@ -70,6 +70,8 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {from: 'hi@marvellous-events.ru'}
+  config.action_mailer.default_url_options = { host: 'https://marvellous-events.ru/' }
+
 
   # Use a different logger for distributed setups.
   # require "syslog/logger"
